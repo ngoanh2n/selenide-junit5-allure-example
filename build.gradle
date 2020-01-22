@@ -1,16 +1,156 @@
-plugins {
-    id 'java'
-}
+/**
+ * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
+ */
 
-group 'com.github.ngoanh2n'
-version '1.0-SNAPSHOT'
+group group
+version version
 
-sourceCompatibility = 1.8
+apply plugin: 'java'
+apply plugin: 'idea'    // Optional using for IntelliJ IDEA
+apply plugin: 'eclipse' // Optional using for Eclipse
+apply plugin: 'io.qameta.allure'
+
+[compileJava, compileTestJava]*.sourceCompatibility = 1.8
+[compileJava, compileTestJava]*.targetCompatibility = 1.8
+[compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
+[compileJava, compileTestJava]*.options.collect { options -> options.encoding = 'UTF-8' }
 
 repositories {
+    jcenter()
     mavenCentral()
+    maven {
+        url "https://plugins.gradle.org/m2/"
+    }
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    /*
+    * Selenium/Selenide
+    */
+    // https://mvnrepository.com/artifact/com.codeborne/selenide
+    implementation('com.codeborne:selenide:5.6.0')
+
+    // https://mvnrepository.com/artifact/io.appium/java-client
+    implementation('io.appium:java-client:7.2.0')
+
+    // https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver
+    testImplementation('com.codeborne:phantomjsdriver:1.4.4') { transitive = false }
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver
+    testImplementation('org.seleniumhq.selenium:htmlunit-driver:2.36.0')
+
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver
+    testImplementation('org.seleniumhq.selenium:selenium-safari-driver:3.141.59') { transitive = false }
+
+    /*
+    * JUnit5
+    */
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.6.0-RC1')
+
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.6.0-RC1')
+
+    // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
+    testImplementation('org.junit.vintage:junit-vintage-engine:5.6.0-RC1')
+
+    /*
+    * Enable use of the JUnitPlatform Runner within the IntelliJ
+    */
+    // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
+    testImplementation('org.junit.platform:junit-platform-runner:1.6.0-RC1')
+
+    /*
+    * Allure
+    */
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5
+    testImplementation('io.qameta.allure:allure-junit5:2.13.1')
+
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide
+    testImplementation('io.qameta.allure:allure-selenide:2.13.1')
+
+    // https://mvnrepository.com/artifact/com.github.automatedowl/allure-environment-writer
+    implementation 'com.github.automatedowl:allure-environment-writer:1.0.0'
+
+    /*
+     * Logging
+     */
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
+    implementation('org.slf4j:slf4j-api:1.7.30')
+
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
+    testImplementation('org.slf4j:slf4j-log4j12:1.7.30')
+}
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
+
+/*
+* Allure Configuration
+*/
+allure {
+    version = '2.13.1'
+    aspectjweaver = true
+    autoconfigure = false
+    aspectjVersion = '1.9.1'
+    useJUnit5 { version = '2.13.1' }
+}
+
+tasks.withType(Test).all { testTask ->
+    testTask.systemProperties = [
+            'file.encoding': 'UTF-8',
+            'BUILD_URL'    : System.getenv()['BUILD_URL']
+    ]
+    testTask.testLogging.showStandardStreams = true
+    testTask.exclude 'com.github.ngoanh2n.pages/**/*'
+    testTask.outputs.upToDateWhen { false }
+}
+
+tasks.withType(Test) {
+    /*
+    * Enable JUnit Platform (JUnit 5) support, default is JUnit
+    */
+    useJUnitPlatform() {
+        /*
+        * Filter by engines
+        */
+        includeEngines 'junit-jupiter'
+        //excludeEngines 'junit-vintage'
+
+        /*
+        * Filter by tags
+        */
+        //includeTags 'fast', 'smoke'
+        //excludeTags 'slow', 'ci'
+    }
+
+    /*
+    * Make failing tests do not fail the task
+    */
+    ignoreFailures = true
+
+    /*
+    * To show standard out and standard error of the test JVM(s) on the console
+    */
+    testLogging.showStandardStreams = true
+
+    /*
+    *  Want to display the following test events
+    */
+    testLogging { events 'passed', 'skipped', 'failed' }
+
+    /*
+    * To make the Gradle JVM system properties available to tests
+    */
+    systemProperties = System.getProperties() as Map<String, ?>
 }
