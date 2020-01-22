@@ -1,0 +1,25 @@
+[
+  {
+    "name": "Skipped Tests By @Disabled",
+    "matchedStatuses": ["skipped"],
+    "messageRegex": ".*@Disabled.*"
+  },
+  {
+    "name": "Broken Tests",
+    "matchedStatuses": ["broken"],
+    "traceRegex": ".*WebDriverException.*",
+    "messageRegex": ".*unknown error.*"
+  },
+  {
+    "name": "Test Defects",
+    "matchedStatuses": ["broken", "failed"],
+    "traceRegex": ".*NoSuchElementException.*",
+    "messageRegex": ".*no such element.*"
+  },
+  {
+    "name": "Product Defects",
+    "matchedStatuses": [ "failed" ],
+    "traceRegex": ".*ElementShould.*",
+    "messageRegex": ".*Element should.*"
+  }
+]
