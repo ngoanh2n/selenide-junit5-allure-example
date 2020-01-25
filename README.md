@@ -21,6 +21,7 @@
 
 - [**Environment**](#environment)
 - [**Frameworks/Libraries**](#frameworkslibraries)
+- [**Project Structure**](#project-structure)
 - [**How To Use**](#how-to-use)
   - [**Clone Repository**](#clone-repository)
   - [**Configuration Files**](#configuration-files)
@@ -35,13 +36,50 @@
 > **Platform**: <em>macOS Mojave</em><br/>
 > **IDE**: <em>IntelliJ IDEA 2019.3.1 (Community Edition)</em><br/>
 > **Java**: <em>1.8.0_211</em><br/>
-> **Gradle**: <em>6.0.1</em><br/>
+> **Gradle**: <em>6.1.1</em><br/>
 
 ## **Frameworks/Libraries**
 > **Selenide**: <em>5.6.0 - Web Driver</em><br/>
 > **JUnit5**: <em>5.6.0-RC1 - Testing Framework</em><br/>
 > **Allure**: <em>2.13.1 - Test Report</em><br/>
 > **Allure Gradle**: <em>2.8.1 - Gradle Plugin</em><br/>
+
+## **Project Structure**
+```
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── images
+│   └── **/*.png
+├── src/test
+│   ├── java/com/github/ngoanh2n
+│   │   ├── common
+│   │   │   ├── BasePage.java
+│   │   │   └── BaseTest.java
+│   │   ├── components
+│   │   │   └── NavigationBar.java
+│   │   ├── pages
+│   │   │   ├── HomePage.java
+│   │   │   └── LoginPage.java
+│   │   └── scenarios
+│   │       └── ExampleTest.java
+│   └── resources
+│       ├── allure.properties
+│       ├── categories.json
+│       ├── junit-platform.properties
+│       ├── log4j.properties
+│       └── selenide.properties
+├── .gitignore
+├── .travis.yml
+├── LICENSE
+├── README.md
+├── build.gradle
+├── gradle.properties
+├── gradlew
+├── gradlew.bat
+└── settings.gradle
+```
 
 ## **How To Use**
 ### **Clone Repository**
