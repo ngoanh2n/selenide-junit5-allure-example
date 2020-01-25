@@ -39,7 +39,7 @@
 > **Gradle**: <em>6.1.1</em><br/>
 
 ## **Frameworks/Libraries**
-> **Selenide**: <em>5.6.0 - Web Driver</em><br/>
+> **Selenide**: <em>5.6.1 - Web Driver</em><br/>
 > **JUnit5**: <em>5.6.0-RC1 - Testing Framework</em><br/>
 > **Allure**: <em>2.13.1 - Test Report</em><br/>
 > **Allure Gradle**: <em>2.8.1 - Gradle Plugin</em><br/>

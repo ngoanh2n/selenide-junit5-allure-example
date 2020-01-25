@@ -28,7 +28,7 @@ dependencies {
     * Selenium/Selenide
     */
     // https://mvnrepository.com/artifact/com.codeborne/selenide
-    implementation('com.codeborne:selenide:5.6.0')
+    implementation('com.codeborne:selenide:5.6.1')
 
     // https://mvnrepository.com/artifact/io.appium/java-client
     implementation('io.appium:java-client:7.2.0')
