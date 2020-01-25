@@ -20,7 +20,7 @@ import java.io.IOException;
  */
 
 @SuppressWarnings({"unchecked", "UnusedReturnValue"})
-public class BasePage<Page> extends SelenidePageFactory {
+public abstract class BasePage<Page> extends SelenidePageFactory {
 
     // Milliseconds
     protected long minTimeoutToWait = 5 * 1000;

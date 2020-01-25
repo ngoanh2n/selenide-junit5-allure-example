@@ -16,7 +16,7 @@ import static com.codeborne.selenide.Selenide.$;
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
 
-public class NavigationBar<Page> extends BasePage<Page> {
+public abstract class NavigationBar<Page> extends BasePage<Page> {
 
     @Step("Logout and go back LoginPage")
     public LoginPage logout() {
