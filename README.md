@@ -40,7 +40,9 @@
 
 ## **Frameworks/Libraries**
 > **Selenide**: <em>5.6.1 - Web Driver</em><br/>
-> **JUnit5**: <em>5.6.0-RC1 - Testing Framework</em><br/>
+> **JUnit5 - Platform**: <em>1.6.0 - Testing Launcher</em><br/>
+> **JUnit5 - Jupiter**: <em>5.6.0 - Testing Framework</em><br/>
+> **JUnit5 - Vintage**: <em>5.6.0 - Test Engine</em><br/>
 > **Allure**: <em>2.13.1 - Test Report</em><br/>
 > **Allure Gradle**: <em>2.8.1 - Gradle Plugin</em><br/>
 
