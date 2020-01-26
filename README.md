@@ -1,6 +1,6 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/ngoanh2n.svg?style=social)](https://twitter.com/ngoanh2n)
 [![GitHub followers](https://img.shields.io/github/followers/ngoanh2n.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/ngoanh2n?tab=followers)
-[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/network/)
+[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/network/members/)
 [![GitHub stars](https://img.shields.io/github/stars/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Star&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/stargazers/)
 [![GitHub watchers](https://img.shields.io/github/watchers/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/watchers/)
 
