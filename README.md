@@ -1,17 +1,17 @@
 [![Twitter Follow](https://img.shields.io/twitter/follow/ngoanh2n.svg?style=social)](https://twitter.com/ngoanh2n)
 [![GitHub followers](https://img.shields.io/github/followers/ngoanh2n.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/ngoanh2n?tab=followers)
-[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/network/members/)
-[![GitHub stars](https://img.shields.io/github/stars/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Star&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/stargazers/)
-[![GitHub watchers](https://img.shields.io/github/watchers/ngoanh2n/selenide-junit-allure-example.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit-allure-example/watchers/)
+[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/network/members/)
+[![GitHub stars](https://img.shields.io/github/stars/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Star&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/stargazers/)
+[![GitHub watchers](https://img.shields.io/github/watchers/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/watchers/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![badge-jdk](https://img.shields.io/badge/jdk-8-blue.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-[![Build Status](https://travis-ci.org/ngoanh2n/selenide-junit-allure-example.svg?branch=master)](https://travis-ci.org/ngoanh2n/selenide-junit-allure-example)
-[![GitHub contributors](https://img.shields.io/github/contributors/ngoanh2n/selenide-junit-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit-allure-example/graphs/contributors/)
-[![GitHub issues](https://img.shields.io/github/issues/ngoanh2n/selenide-junit-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit-allure-example/issues/)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/ngoanh2n/selenide-junit-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit-allure-example/issues?q=is%3Aissue+is%3Aclosed)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/ngoanh2n/selenide-junit-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit-allure-example/pulls/)
-[![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/ngoanh2n/selenide-junit-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit-allure-example/pulls?q=is%3Apulls+is%3Aclosed)
+[![Build Status](https://travis-ci.org/ngoanh2n/selenide-junit5-allure-example.svg?branch=master)](https://travis-ci.org/ngoanh2n/selenide-junit5-allure-example)
+[![GitHub contributors](https://img.shields.io/github/contributors/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/issues/)
+[![GitHub issues-closed](https://img.shields.io/github/issues-closed/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/issues?q=is%3Aissue+is%3Aclosed)
+[![GitHub pull-requests](https://img.shields.io/github/issues-pr/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/pulls/)
+[![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/pulls?q=is%3Apulls+is%3Aclosed)
 
 # Selenide, JUnit5, Allure Example
 
@@ -83,7 +83,7 @@
 
 ## **How To Use**
 ### **Clone Repository**
-> `$ git clone https://github.com/ngoanh2n/selenide-junit-allure-example.git`
+> `$ git clone https://github.com/ngoanh2n/selenide-junit5-allure-example.git`
 
 ### **Configuration Files**
 You can change values for your case.
@@ -116,7 +116,7 @@ You can change values for your case.
 ### **Run Tests With Gradle**
 > `./gradlew clean test allureReport`<br/>
 
-Task `allureReport`: Build report from `selenide-junit-allure-example/build/allure-results` folder
+Task `allureReport`: Build report from `selenide-junit5-allure-example/build/allure-results` folder
 
 #### **Perform On Browsers**
 - chrome
@@ -140,7 +140,7 @@ Giving values can be `TestPackage`, `TestClass`, `TestMethod`
 ### **Allure Report**
 <em>`Note`: If your test command contains task `allureReport`, when tests finished you can see below message in terminal likes.</em>
 > **> Task :allureReport**<br/>
-> Report successfully generated to /Users/ngoanh2n/Desktop/Work/guides-test-automation/`selenide-junit-allure-example/build/reports/allure-report`<br/>
+> Report successfully generated to /Users/ngoanh2n/Desktop/Work/guides-test-automation/`selenide-junit5-allure-example/build/reports/allure-report`<br/>
 
 Open your browser with above path by Firefox<br/>
 <em>`Note`: If you see Allure report is displayed likes below image.</em>
