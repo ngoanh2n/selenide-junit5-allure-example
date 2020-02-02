@@ -7,11 +7,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![badge-jdk](https://img.shields.io/badge/jdk-8-blue.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 [![Build Status](https://travis-ci.org/ngoanh2n/selenide-junit5-allure-example.svg?branch=master)](https://travis-ci.org/ngoanh2n/selenide-junit5-allure-example)
-[![GitHub contributors](https://img.shields.io/github/contributors/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/graphs/contributors/)
-[![GitHub issues](https://img.shields.io/github/issues/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/issues/)
-[![GitHub issues-closed](https://img.shields.io/github/issues-closed/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/issues?q=is%3Aissue+is%3Aclosed)
-[![GitHub pull-requests](https://img.shields.io/github/issues-pr/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/pulls/)
-[![GitHub pull-requests closed](https://img.shields.io/github/issues-pr-closed/ngoanh2n/selenide-junit5-allure-example.svg)](https://github.com/ngoanh2n/selenide-junit5-allure-example/pulls?q=is%3Apulls+is%3Aclosed)
 
 # Selenide, JUnit5, Allure Example
 
