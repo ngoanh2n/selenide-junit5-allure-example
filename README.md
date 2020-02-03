@@ -28,10 +28,9 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## **Environment**
-> **Platform**: <em>macOS Mojave</em><br/>
-> **IDE**: <em>IntelliJ IDEA 2019.3.1 (Community Edition)</em><br/>
-> **Java**: <em>1.8.0_211</em><br/>
 > **Gradle**: <em>6.1.1</em><br/>
+> **Java**: <em>1.8.0_211</em><br/>
+> **IDE**: <em>IntelliJ IDEA 2019.3.1 (Community Edition)</em><br/>
 
 ## **Frameworks/Libraries**
 > **Selenide**: <em>5.6.1 - Web Driver</em><br/>
@@ -50,15 +49,15 @@
 ├── images
 │   └── **/*.png
 ├── src/test
-│   ├── java/com/github/ngoanh2n
+│   ├── java/com/github/ngoanh2n/sjae
 │   │   ├── common
 │   │   │   ├── BasePage.java
 │   │   │   └── BaseTest.java
 │   │   ├── components
-│   │   │   └── NavigationBar.java
+│   │   │   └── Header.java
 │   │   ├── pages
-│   │   │   ├── HomePage.java
-│   │   │   └── LoginPage.java
+│   │   │   ├── LoginPage.java
+│   │   │   └── PortalPage.java
 │   │   └── scenarios
 │   │       └── ExampleTest.java
 │   └── resources
@@ -132,7 +131,7 @@ Able to select browser by passing system property `selenide.browser`<br/>
 #### **Filter Tests**
 You can filter tests by using option `--tests`<br/>
 Giving values can be `TestPackage`, `TestClass`, `TestMethod`
-> `./gradlew clean test -Dselenide.browser=firefox --tests ExampleTest.homePageTest allureReport`
+> `./gradlew clean test -Dselenide.browser=firefox --tests ExampleTest.passedTest allureReport`
 
 ### **Allure Report**
 <em>`Note`: If your test command contains task `allureReport`, when tests finished you can see below message in terminal likes.</em>
@@ -147,7 +146,13 @@ Open your browser with above path by Firefox<br/>
 - Search for `privacy.file_unique_origin`
 - Finally, change value to `false`, and refresh tab `Allure Report`
 
-<em>Otherwise, you can see.</em>
+<em>Otherwise, you can see below.</em>
+
+#### **Overview**
 ![](images/allure-report-overview.png?raw=true)
 
-![](images/allure-report-details-behaviors.png?raw=true)
+#### **Categories**
+![](images/allure-report-categories.png?raw=true)
+
+#### **Behaviors**
+![](images/allure-report-behaviors.png?raw=true)
