@@ -1,10 +1,10 @@
-package com.github.ngoanh2n.common;
+package com.github.ngoanh2n.sjae.common;
 
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.automatedowl.tools.AllureEnvironmentWriter;
-import com.github.ngoanh2n.pages.HomePage;
-import com.github.ngoanh2n.pages.LoginPage;
+import com.github.ngoanh2n.sjae.pages.LoginPage;
+import com.github.ngoanh2n.sjae.pages.PortalPage;
 import com.google.common.collect.ImmutableMap;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
@@ -33,7 +33,7 @@ public abstract class BaseTest {
     private final static Logger logger = LoggerFactory.getLogger(lookup().lookupClass());
     private final static String selenideProperties = "selenide.properties";
 
-    protected HomePage homePage;
+    protected PortalPage portalPage;
 
     @BeforeAll
     static void setupClass() throws IOException {
@@ -97,12 +97,13 @@ public abstract class BaseTest {
 
     @BeforeEach
     protected void setupTest() {
-        this.homePage = open("/users/sign_in", LoginPage.class)
-                .login("anonymous.automation", "ngoanh2n");
+        this.portalPage = open("/users/login", LoginPage.class)
+                .login("ngoanh2n", "ngoanh2n");
     }
 
     @AfterEach
     protected void cleanupTest() {
-        this.homePage.logout();
+        this.portalPage.logout();
+        WebDriverRunner.closeWindow();
     }
 }

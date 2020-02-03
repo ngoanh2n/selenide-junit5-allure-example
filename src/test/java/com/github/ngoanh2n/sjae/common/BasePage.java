@@ -1,9 +1,10 @@
-package com.github.ngoanh2n.common;
+package com.github.ngoanh2n.sjae.common;
 
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.impl.SelenidePageFactory;
 import io.qameta.allure.Attachment;
+import org.openqa.selenium.WebDriver;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -22,11 +23,12 @@ import java.io.IOException;
 @SuppressWarnings({"unchecked", "UnusedReturnValue"})
 public abstract class BasePage<Page> extends SelenidePageFactory {
 
-    // Milliseconds
-    protected long minTimeoutToWait = 5 * 1000;
+    protected WebDriver driver;
+    protected long minTimeoutToWait = 5 * 1000; // Milliseconds
 
     protected BasePage() {
         this.page(WebDriverRunner.driver(), this);
+        this.driver = WebDriverRunner.getWebDriver();
     }
 
     public Page screenshotEntryPage() {
