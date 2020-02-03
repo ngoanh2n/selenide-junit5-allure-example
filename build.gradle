@@ -1,3 +1,5 @@
+import java.nio.charset.StandardCharsets
+
 /**
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
@@ -10,10 +12,17 @@ apply plugin: 'idea'    // Optional using for IntelliJ IDEA
 apply plugin: 'eclipse' // Optional using for Eclipse
 apply plugin: 'io.qameta.allure'
 
+/*
+* Define extra properties for the project object - project.ext
+*/
+ext {
+    encoding = StandardCharsets.UTF_8.name()
+}
+
 [compileJava, compileTestJava]*.sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.targetCompatibility = 1.8
 [compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
-[compileJava, compileTestJava]*.options.collect { options -> options.encoding = 'UTF-8' }
+[compileJava, compileTestJava]*.options.collect { options -> options.encoding = encoding }
 
 repositories {
     jcenter()
@@ -110,16 +119,6 @@ allure {
     useJUnit5 { version = '2.13.1' }
 }
 
-tasks.withType(Test).all { testTask ->
-    testTask.systemProperties = [
-            'file.encoding': 'UTF-8',
-            'BUILD_URL'    : System.getenv()['BUILD_URL']
-    ]
-    testTask.testLogging.showStandardStreams = true
-    testTask.exclude 'com.github.ngoanh2n.pages/**/*'
-    testTask.outputs.upToDateWhen { false }
-}
-
 tasks.withType(Test) {
     /*
     * Enable JUnit Platform (JUnit 5) support, default is JUnit
@@ -144,6 +143,12 @@ tasks.withType(Test) {
     ignoreFailures = true
 
     /*
+    * If any upToDateWhen spec returns false, the task is considered out of date.
+    * If they return true, Gradle does the normal behavior of checking input/output files.
+    */
+    outputs.upToDateWhen { false }
+
+    /*
     * To show standard out and standard error of the test JVM(s) on the console
     */
     testLogging.showStandardStreams = true
@@ -152,6 +157,16 @@ tasks.withType(Test) {
     *  Want to display the following test events
     */
     testLogging { events 'passed', 'skipped', 'failed' }
+
+    /*
+    * When the JVM starts, it uses the JVMs platform encoding
+    */
+    systemProperty('file.encoding', encoding)
+
+    /*
+    * Set BUILD_URL to JVM
+    */
+    systemProperty('BUILD_URL', System.getenv()['BUILD_URL'])
 
     /*
     * To make the Gradle JVM system properties available to tests
