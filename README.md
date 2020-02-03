@@ -24,6 +24,9 @@
     - [**Perform On Browsers**](#perform-on-browsers)
     - [**Filter Tests**](#filter-tests)
   - [**Allure Report**](#allure-report)
+    - [**Overview**](#overview)
+    - [**Categories**](#categories)
+    - [**Behaviors**](#behaviors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
