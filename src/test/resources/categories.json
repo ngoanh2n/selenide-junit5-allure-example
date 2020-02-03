@@ -1,25 +1,37 @@
 [
   {
-    "name": "Skipped Tests By @Disabled",
+    "name": "Skipped Tests By @Disabled - Definition",
     "matchedStatuses": ["skipped"],
     "messageRegex": ".*@Disabled.*"
   },
   {
-    "name": "Broken Tests",
+    "name": "Broken Tests - Definition",
     "matchedStatuses": ["broken"],
     "traceRegex": ".*WebDriverException.*",
     "messageRegex": ".*unknown error.*"
   },
   {
-    "name": "Test Defects",
+    "name": "Test Defects - Definition",
     "matchedStatuses": ["broken", "failed"],
     "traceRegex": ".*NoSuchElementException.*",
     "messageRegex": ".*no such element.*"
   },
   {
-    "name": "Product Defects",
+    "name": "Test Defects - Definition",
+    "matchedStatuses": ["broken", "failed"],
+    "traceRegex": ".*IndexOutOfBoundsException.*",
+    "messageRegex": "Index.*"
+  },
+  {
+    "name": "Product Defects - Definition",
     "matchedStatuses": [ "failed" ],
     "traceRegex": ".*ElementShould.*",
     "messageRegex": ".*Element should.*"
+  },
+  {
+    "name": "Product Defects - Definition",
+    "matchedStatuses": [ "failed" ],
+    "traceRegex": ".*checkCondition.*",
+    "messageRegex": ".*should have.*"
   }
 ]
