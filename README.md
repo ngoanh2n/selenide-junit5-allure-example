@@ -1,8 +1,6 @@
-[![Twitter Follow](https://img.shields.io/twitter/follow/ngoanh2n.svg?style=social)](https://twitter.com/ngoanh2n)
-[![GitHub followers](https://img.shields.io/github/followers/ngoanh2n.svg?style=social&label=Follow&maxAge=2592000)](https://github.com/ngoanh2n?tab=followers)
-[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/network/members/)
 [![GitHub stars](https://img.shields.io/github/stars/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Star&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/stargazers/)
 [![GitHub watchers](https://img.shields.io/github/watchers/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/watchers/)
+[![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/network/members/)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blueviolet.svg)](https://opensource.org/licenses/MIT)
 [![badge-jdk](https://img.shields.io/badge/jdk-8-blue.svg)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -14,7 +12,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [**Environment**](#environment)
 - [**Frameworks/Libraries**](#frameworkslibraries)
 - [**Project Structure**](#project-structure)
 - [**How To Use**](#how-to-use)
@@ -30,18 +27,13 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## **Environment**
-> **Gradle**: <em>6.1.1</em><br/>
-> **Java**: <em>1.8.0_211</em><br/>
-> **IDE**: <em>IntelliJ IDEA 2019.3.1 (Community Edition)</em><br/>
-
 ## **Frameworks/Libraries**
-> **Selenide**: <em>5.6.1 - Web Driver</em><br/>
-> **JUnit5 - Platform**: <em>1.6.0 - Testing Launcher</em><br/>
-> **JUnit5 - Jupiter**: <em>5.6.0 - Testing Framework</em><br/>
-> **JUnit5 - Vintage**: <em>5.6.0 - Test Engine</em><br/>
-> **Allure**: <em>2.13.1 - Test Report</em><br/>
-> **Allure Gradle**: <em>2.8.1 - Gradle Plugin</em><br/>
+> **Selenide**: <em>6.7.0 - Web Driver</em><br/>
+> **Allure**: <em>2.18.0 - Test Report</em><br/>
+> **Appium**: <em>8.1.0 - Test Report</em><br/>
+> **JUnit5 - Platform**: <em>1.9.0 - Testing Launcher</em><br/>
+> **JUnit5 - Jupiter**: <em>5.9.0 - Testing Framework</em><br/>
+> **JUnit5 - Vintage**: <em>5.9.0 - Test Engine</em><br/>
 
 ## **Project Structure**
 ```
@@ -56,12 +48,12 @@
 │   │   ├── common
 │   │   │   ├── BasePage.java
 │   │   │   └── BaseTest.java
-│   │   ├── components
-│   │   │   └── Header.java
 │   │   ├── pages
+│   │   │   ├── layouts
+│   │   │   │   └── Header.java
 │   │   │   ├── LoginPage.java
 │   │   │   └── PortalPage.java
-│   │   └── scenarios
+│   │   └── scripts
 │   │       └── ExampleTest.java
 │   └── resources
 │       ├── allure.properties
@@ -119,11 +111,9 @@ Task `allureReport`: Build report from `selenide-junit5-allure-example/build/all
 
 #### **Perform On Browsers**
 - chrome
+- edge
 - firefox
 - ie
-- edge
-- htmlunit
-- phantomjs
 - safari
 
 > If run safari, you must enable the 'Allow Remote Automation' option in Safari's Develop menu to control Safari via WebDriver.
