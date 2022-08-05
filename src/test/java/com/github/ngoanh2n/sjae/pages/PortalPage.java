@@ -2,7 +2,7 @@ package com.github.ngoanh2n.sjae.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.github.ngoanh2n.sjae.components.Header;
+import com.github.ngoanh2n.sjae.pages.layouts.Header;
 import io.qameta.allure.Step;
 
 import java.util.ArrayList;
@@ -13,17 +13,13 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 /**
- * PortalPage class
- * <br/>
- *
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
-
 public class PortalPage extends Header<PortalPage> {
 
     @Step("Verify Dashboard title")
     public PortalPage verifyDashboardTitle(String expected) {
-        this.screenshotEntryPage();
+        screenshotEntryPage();
         $(".student_dashboard div h1").shouldHave(text(expected));
         return this;
     }

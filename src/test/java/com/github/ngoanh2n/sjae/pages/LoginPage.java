@@ -7,12 +7,8 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Selenide.$;
 
 /**
- * LoginPage class
- * <br/>
- *
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
-
 public class LoginPage extends BasePage<LoginPage> {
 
     @Step("Login with {username}/{password}")

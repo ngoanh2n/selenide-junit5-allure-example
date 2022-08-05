@@ -91,19 +91,21 @@ public abstract class BaseTest {
                 System.getProperty("allure.results.directory") + "/"
         );
 
+        if (WebDriverRunner.hasWebDriverStarted()) {
+            WebDriverRunner.closeWebDriver();
+        }
         SelenideLogger.removeListener("AllureSelenide");
-        if (WebDriverRunner.hasWebDriverStarted()) WebDriverRunner.closeWebDriver();
     }
 
     @BeforeEach
     protected void setupTest() {
-        this.portalPage = open("/users/login", LoginPage.class)
+        portalPage = open("/users/login", LoginPage.class)
                 .login("ngoanh2n", "ngoanh2n");
     }
 
     @AfterEach
     protected void cleanupTest() {
-        this.portalPage.logout();
+        portalPage.logout();
         WebDriverRunner.closeWindow();
     }
 }

@@ -1,4 +1,4 @@
-package com.github.ngoanh2n.sjae.scenarios;
+package com.github.ngoanh2n.sjae.scripts;
 
 import com.github.ngoanh2n.sjae.common.BaseTest;
 import io.qameta.allure.*;
@@ -25,7 +25,7 @@ public class ExampleTest extends BaseTest {
     @Story("Portal UI")
     @Description("This test demonstrates how to use Selenide, JUnit5, Allure...")
     void passedTest() {
-        this.portalPage.verifyDashboardTitle("Student Portal");
+        portalPage.verifyDashboardTitle("Student Portal");
     }
 
     @Test
@@ -33,7 +33,7 @@ public class ExampleTest extends BaseTest {
     @Story("Portal UI")
     @Description("This test demonstrates how to use Selenide, JUnit5, Allure...")
     void failedTest() {
-        this.portalPage.verifyDashboardTitle("Teacher Portal");
+        portalPage.verifyDashboardTitle("Teacher Portal");
     }
 
     @Test
@@ -41,6 +41,6 @@ public class ExampleTest extends BaseTest {
     @Story("Portal UI")
     @Description("This test demonstrates how to use Selenide, JUnit5, Allure...")
     void brokenTest() {
-        this.portalPage.verifyLastQuizMenu();
+        portalPage.verifyLastQuizMenu();
     }
 }

@@ -4,8 +4,8 @@ import java.nio.charset.StandardCharsets
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
 
-group("com.github.ngoanh2n")
-version("1.1")
+group(property("prj.groupId"))
+version(property("prj.version"))
 
 apply plugin: "java"
 apply plugin: "idea"                // Optional using for IntelliJ IDEA
