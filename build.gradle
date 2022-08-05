@@ -4,25 +4,30 @@ import java.nio.charset.StandardCharsets
  * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
  */
 
-group group
-version version
+group("com.github.ngoanh2n")
+version("1.1")
 
-apply plugin: 'java'
-apply plugin: 'idea'    // Optional using for IntelliJ IDEA
-apply plugin: 'eclipse' // Optional using for Eclipse
-apply plugin: 'io.qameta.allure'
+apply plugin: "java"
+apply plugin: "idea"                // Optional using for IntelliJ IDEA
+apply plugin: "eclipse"             // Optional using for Eclipse
+apply plugin: "io.qameta.allure"
 
 /*
 * Define extra properties for the project object - project.ext
 */
 ext {
-    encoding = StandardCharsets.UTF_8.name()
+    VERSION_SELENIDE            = "6.7.0"
+    VERSION_APPIUM              = "8.1.0"
+    VERSION_ALLURE              = "2.18.0"
+    VERSION_JUNIT5_JUPITER      = "5.9.0"
+    VERSION_JUNIT5_PLATFORM     = "1.9.0"
+    VERSION_SLF4J               = "1.7.36"
 }
 
 [compileJava, compileTestJava]*.sourceCompatibility = 1.8
 [compileJava, compileTestJava]*.targetCompatibility = 1.8
 [compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
-[compileJava, compileTestJava]*.options.collect { options -> options.encoding = encoding }
+[compileJava, compileTestJava]*.options.collect { options -> options.encoding = "UTF-8" }
 
 repositories {
     jcenter()
@@ -37,62 +42,50 @@ dependencies {
     * Selenium/Selenide
     */
     // https://mvnrepository.com/artifact/com.codeborne/selenide
-    implementation('com.codeborne:selenide:5.6.1')
+    implementation("com.codeborne:selenide:${VERSION_SELENIDE}")
 
     // https://mvnrepository.com/artifact/io.appium/java-client
-    implementation('io.appium:java-client:7.2.0')
-
-    // https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver
-    testImplementation('com.codeborne:phantomjsdriver:1.4.4') { transitive = false }
-
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/htmlunit-driver
-    testImplementation('org.seleniumhq.selenium:htmlunit-driver:2.36.0')
-
-    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-safari-driver
-    testImplementation('org.seleniumhq.selenium:selenium-safari-driver:3.141.59') { transitive = false }
+    implementation("io.appium:java-client:${VERSION_APPIUM}")
 
     /*
-    * JUnit5 - Jupiter: API, Engine
+    * Allure
     */
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.6.0')
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5
+    testImplementation("io.qameta.allure:allure-junit5:${VERSION_ALLURE}")
 
-    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.6.0')
+    // https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide
+    testImplementation("io.qameta.allure:allure-selenide:${VERSION_ALLURE}")
+
+    // https://mvnrepository.com/artifact/com.github.automatedowl/allure-environment-writer
+    implementation("com.github.automatedowl:allure-environment-writer:1.0.0")
 
     /*
-    * JUnit5 - Vintage
+    * JUnit5 - Jupiter: API, Engine, Params
+    */
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
+    testImplementation("org.junit.jupiter:junit-jupiter:${VERSION_JUNIT5_JUPITER}")
+
+    /*
+    * JUnit5 - Vintage: Engine
     */
     // https://mvnrepository.com/artifact/org.junit.vintage/junit-vintage-engine
-    testImplementation('org.junit.vintage:junit-vintage-engine:5.6.0')
+    testImplementation("org.junit.vintage:junit-vintage-engine:${VERSION_JUNIT5_JUPITER}")
 
     /*
     * JUnit5 - Platform: Runner
     * Enable use of the JUnitPlatform Runner within the IntelliJ
     */
     // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-runner
-    testImplementation('org.junit.platform:junit-platform-runner:1.6.0')
-
-    /*
-    * Allure
-    */
-    // https://mvnrepository.com/artifact/io.qameta.allure/allure-junit5
-    testImplementation('io.qameta.allure:allure-junit5:2.13.1')
-
-    // https://mvnrepository.com/artifact/io.qameta.allure/allure-selenide
-    testImplementation('io.qameta.allure:allure-selenide:2.13.1')
-
-    // https://mvnrepository.com/artifact/com.github.automatedowl/allure-environment-writer
-    implementation 'com.github.automatedowl:allure-environment-writer:1.0.0'
+    testImplementation("org.junit.platform:junit-platform-runner:${VERSION_JUNIT5_PLATFORM}")
 
     /*
      * Logging
      */
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-api
-    implementation('org.slf4j:slf4j-api:1.7.30')
+    implementation("org.slf4j:slf4j-api:${VERSION_SLF4J}")
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
-    testImplementation('org.slf4j:slf4j-log4j12:1.7.30')
+    testImplementation("org.slf4j:slf4j-log4j12:${VERSION_SLF4J}")
 }
 
 buildscript {
@@ -112,14 +105,14 @@ buildscript {
 * Allure Configuration
 */
 allure {
-    version = '2.13.1'
+    version = VERSION_ALLURE
     aspectjweaver = true
     autoconfigure = false
-    aspectjVersion = '1.9.1'
-    useJUnit5 { version = '2.13.1' }
+    aspectjVersion = "1.9.1"
+    useJUnit5 { version = VERSION_ALLURE }
 }
 
-tasks.withType(Test) {
+test {
     /*
     * Enable JUnit Platform (JUnit 5) support, default is JUnit
     */
@@ -127,14 +120,14 @@ tasks.withType(Test) {
         /*
         * Filter by engines
         */
-        includeEngines 'junit-jupiter'
-        //excludeEngines 'junit-vintage'
+        includeEngines "junit-jupiter"
+        //excludeEngines "junit-vintage"
 
         /*
         * Filter by tags
         */
-        //includeTags 'fast', 'smoke'
-        //excludeTags 'slow', 'ci'
+        //includeTags "fast", "smoke"
+        //excludeTags "slow", "ci"
     }
 
     /*
@@ -156,20 +149,10 @@ tasks.withType(Test) {
     /*
     *  Want to display the following test events
     */
-    testLogging { events 'passed', 'skipped', 'failed' }
+    testLogging { events "passed", "skipped", "failed" }
 
     /*
     * When the JVM starts, it uses the JVMs platform encoding
     */
-    systemProperty('file.encoding', encoding)
-
-    /*
-    * Set BUILD_URL to JVM
-    */
-    systemProperty('BUILD_URL', System.getenv()['BUILD_URL'])
-
-    /*
-    * To make the Gradle JVM system properties available to tests
-    */
-    systemProperties = System.getProperties() as Map<String, ?>
+    systemProperty("file.encoding", "UTF-8")
 }

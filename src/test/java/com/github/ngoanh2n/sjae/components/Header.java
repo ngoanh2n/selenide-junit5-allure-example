@@ -21,7 +21,7 @@ public abstract class Header<Page> extends BasePage<Page> {
     @Step("Logout and go back LoginPage")
     public LoginPage logout() {
         $("li[class='menu_parent'] a[href='/vocabulary/students/portal']").hover();
-        $x("//div[@class='right_part']//li[@class='menu_parent']").waitUntil(appear, minTimeoutToWait);
+        $x("//div[@class='right_part']//li[@class='menu_parent']").should(appear);
         $("a[href='/users/logout']").click();
         this.screenshotEntryPage();
         return Selenide.page(LoginPage.class);
