@@ -136,7 +136,7 @@ Open your browser with above path by Firefox<br/>
 ![](images/allure-loading-firefox.png?raw=true)
 <em>Then you have to do by the following:.</em>
 - Go to `about:config` in new tab 
-- Search for `privacy.file_unique_origin`
+- Search for `security.fileuri.strict_origin_policy`
 - Finally, change value to `false`, and refresh tab `Allure Report`
 
 <em>Otherwise, you can see below.</em>
