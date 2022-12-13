@@ -20,7 +20,7 @@ ext {
     VERSION_APPIUM              = "8.3.0"
     VERSION_ALLURE              = "2.20.1"
     VERSION_JUNIT5_JUPITER      = "5.9.1"
-    VERSION_JUNIT5_PLATFORM     = "1.9.0"
+    VERSION_JUNIT5_PLATFORM     = "1.9.1"
     VERSION_SLF4J               = "1.7.36"
 }
 
