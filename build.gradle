@@ -16,7 +16,7 @@ apply plugin: "io.qameta.allure"
 * Define extra properties for the project object - project.ext
 */
 ext {
-    VERSION_SELENIDE            = "6.7.0"
+    VERSION_SELENIDE            = "6.10.2"
     VERSION_APPIUM              = "8.1.0"
     VERSION_ALLURE              = "2.18.0"
     VERSION_JUNIT5_JUPITER      = "5.9.0"
