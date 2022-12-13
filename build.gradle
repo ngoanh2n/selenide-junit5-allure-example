@@ -18,7 +18,7 @@ apply plugin: "io.qameta.allure"
 ext {
     VERSION_SELENIDE            = "6.10.2"
     VERSION_APPIUM              = "8.3.0"
-    VERSION_ALLURE              = "2.18.0"
+    VERSION_ALLURE              = "2.20.1"
     VERSION_JUNIT5_JUPITER      = "5.9.0"
     VERSION_JUNIT5_PLATFORM     = "1.9.0"
     VERSION_SLF4J               = "1.7.36"
