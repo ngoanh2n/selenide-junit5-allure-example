@@ -27,13 +27,14 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-## **Frameworks/Libraries**
-> **Selenide**: <em>6.7.0 - Web Driver</em><br/>
-> **Allure**: <em>2.18.0 - Test Report</em><br/>
-> **Appium**: <em>8.1.0 - Test Report</em><br/>
-> **JUnit5 - Platform**: <em>1.9.0 - Testing Launcher</em><br/>
-> **JUnit5 - Jupiter**: <em>5.9.0 - Testing Framework</em><br/>
-> **JUnit5 - Vintage**: <em>5.9.0 - Test Engine</em><br/>
+## **Libraries & Tools**
+> **Gradle**: <em>6.9.3 - Build Tool</em><br/>
+> **Selenide**: <em>6.10.2 - WebDriver</em><br/>
+> **Allure**: <em>2.20.1 - Test Report</em><br/>
+> **Appium**: <em>8.3.0 - WebDriver for Mobile</em><br/>
+> **JUnit5 - Platform**: <em>1.9.1 - Testing Launcher</em><br/>
+> **JUnit5 - Jupiter**: <em>5.9.1 - Testing Framework</em><br/>
+> **JUnit5 - Vintage**: <em>5.9.1 - Test Engine</em><br/>
 
 ## **Project Structure**
 ```
