@@ -11,7 +11,7 @@ import org.junit.jupiter.api.TestMethodOrder;
  * ExampleTest class
  * <br/>
  *
- * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
+ * @author ngoanh2n
  */
 
 @Epic("LearnThat")

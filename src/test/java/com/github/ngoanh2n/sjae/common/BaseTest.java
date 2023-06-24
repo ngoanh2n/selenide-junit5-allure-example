@@ -25,7 +25,7 @@ import static java.lang.invoke.MethodHandles.lookup;
  * BaseTest class
  * <br/>
  *
- * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
+ * @author ngoanh2n
  */
 
 public abstract class BaseTest {

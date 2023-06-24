@@ -1,7 +1,7 @@
 import java.nio.charset.StandardCharsets
 
 /**
- * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
+ * @author ngoanh2n
  */
 
 group(property("prj.groupId"))

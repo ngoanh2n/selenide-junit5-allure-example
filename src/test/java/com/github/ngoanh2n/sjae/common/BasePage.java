@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author ngoanh2n@gmail.com (Ho Huu Ngoan)
+ * @author ngoanh2n
  */
 @SuppressWarnings({"unchecked", "UnusedReturnValue"})
 public abstract class BasePage<Page> {
