@@ -1,0 +1,20 @@
+/**
+ * Author: ngoanh2n
+ */
+allure {
+    version = "${versions.allure}"
+    adapter {
+        aspectjWeaver = true
+        aspectjVersion = "1.9.1"
+        autoconfigureListeners = true
+        frameworks {
+            junit5 {
+                enabled = true
+                autoconfigureListeners = true
+            }
+        }
+    }
+    report {
+        reportDir = layout.buildDirectory.dir("allure")
+    }
+}

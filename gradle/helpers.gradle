@@ -12,6 +12,7 @@ ext {
     ]
     config = [
             test        : { -> return gradle.config().resolve("test.gradle") },
+            allure      : { -> return gradle.config().resolve("allure.gradle") },
             compilation : { -> return gradle.config().resolve("compilation.gradle") },
             dependencies: { -> return gradle.config().resolve("dependencies.gradle") },
     ]

@@ -14,28 +14,20 @@ buildscript {
         maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath("io.qameta.allure:allure-gradle:2.8.1")
+        classpath("io.qameta.allure.gradle.allure:allure-plugin:2.11.2")
     }
 }
 
-apply plugin: "java"
-apply plugin: "idea"                // Optional using for IntelliJ IDEA
-apply plugin: "eclipse"             // Optional using for Eclipse
-apply plugin: "io.qameta.allure"
-
 apply {
+    plugin("java")
+    plugin("base")
+    plugin("idea")
+    plugin("java-library")
+    plugin("maven-publish")
+    plugin("io.qameta.allure")
+
     from(config.test)
+    from(config.allure)
     from(config.compilation)
     from(config.dependencies)
-}
-
-/*
-* Allure Configuration
-*/
-allure {
-    version = "${versions.allure}"
-    aspectjweaver = true
-    autoconfigure = false
-    aspectjVersion = "1.9.1"
-    useJUnit5 { version = "${versions.allure}" }
 }
