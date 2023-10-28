@@ -1,0 +1,14 @@
+/**
+ * Author: ngoanh2n
+ */
+//file:noinspection GroovyAssignabilityCheck
+
+ext {
+    root = [
+            gradle: { -> return file("gradle").toPath() },
+    ]
+    gradle = [
+            config: { -> return root.gradle().resolve("config") },
+    ]
+    config = []
+}

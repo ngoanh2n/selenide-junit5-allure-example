@@ -1,11 +1,23 @@
-import java.nio.charset.StandardCharsets
-
 /**
- * @author ngoanh2n
+ * Author: ngoanh2n
  */
-
 group(property("prj.groupId"))
 version(property("prj.version"))
+
+buildscript {
+    apply { from(file("gradle/helper.gradle")) }
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "io.qameta.allure:allure-gradle:2.8.1"
+    }
+}
 
 apply plugin: "java"
 apply plugin: "idea"                // Optional using for IntelliJ IDEA
@@ -16,12 +28,12 @@ apply plugin: "io.qameta.allure"
 * Define extra properties for the project object - project.ext
 */
 ext {
-    VERSION_SELENIDE            = "6.10.2"
-    VERSION_APPIUM              = "8.3.0"
-    VERSION_ALLURE              = "2.20.1"
-    VERSION_JUNIT5_JUPITER      = "5.9.1"
-    VERSION_JUNIT5_PLATFORM     = "1.9.1"
-    VERSION_SLF4J               = "2.0.5"
+    VERSION_SELENIDE = "6.10.2"
+    VERSION_APPIUM = "8.3.0"
+    VERSION_ALLURE = "2.20.1"
+    VERSION_JUNIT5_JUPITER = "5.9.1"
+    VERSION_JUNIT5_PLATFORM = "1.9.1"
+    VERSION_SLF4J = "2.0.5"
 }
 
 [compileJava, compileTestJava]*.sourceCompatibility = 1.8
@@ -86,19 +98,6 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12
     testImplementation("org.slf4j:slf4j-log4j12:${VERSION_SLF4J}")
-}
-
-buildscript {
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "io.qameta.allure:allure-gradle:2.8.1"
-    }
 }
 
 /*
