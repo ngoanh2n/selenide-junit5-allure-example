@@ -1,5 +1,6 @@
 /**
  * Author: ngoanh2n
+ * @see <a href="https://github.com/allure-framework/allure-gradle">Allure plugin for Gradle</a>
  */
 allure {
     version = "${versions.allure}"
