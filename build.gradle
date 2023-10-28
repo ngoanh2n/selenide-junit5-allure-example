@@ -6,7 +6,7 @@ version(property("prj.version"))
 
 buildscript {
     apply {
-        from(file("gradle/helper.gradle"))
+        from(file("gradle/helpers.gradle"))
         from(file("gradle/versions.gradle"))
     }
 
