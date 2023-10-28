@@ -27,6 +27,8 @@ apply plugin: "idea"                // Optional using for IntelliJ IDEA
 apply plugin: "eclipse"             // Optional using for Eclipse
 apply plugin: "io.qameta.allure"
 
+apply { from(config.compilation) }
+
 /*
 * Define extra properties for the project object - project.ext
 */
@@ -38,11 +40,6 @@ ext {
     VERSION_JUNIT5_PLATFORM = "1.9.1"
     VERSION_SLF4J = "2.0.5"
 }
-
-[compileJava, compileTestJava]*.sourceCompatibility = 1.8
-[compileJava, compileTestJava]*.targetCompatibility = 1.8
-[compileJava, compileTestJava]*.options.collect { options -> options.debug = true }
-[compileJava, compileTestJava]*.options.collect { options -> options.encoding = "UTF-8" }
 
 repositories {
     jcenter()

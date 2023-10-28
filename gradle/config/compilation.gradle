@@ -1,0 +1,16 @@
+/**
+ * Author: ngoanh2n
+ */
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+compileJava {
+    options.debug = true
+    options.encoding = "UTF-8"
+    options.incremental = true
+}
+
+compileTestJava {
+    options.debug = true
+    options.encoding = "UTF-8"
+}

@@ -10,5 +10,7 @@ ext {
     gradle = [
             config: { -> return root.gradle().resolve("config") },
     ]
-    config = []
+    config = [
+            compilation: { -> return gradle.config().resolve("compilation.gradle") },
+    ]
 }
