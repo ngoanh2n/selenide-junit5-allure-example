@@ -5,7 +5,10 @@ group(property("prj.groupId"))
 version(property("prj.version"))
 
 buildscript {
-    apply { from(file("gradle/helper.gradle")) }
+    apply {
+        from(file("gradle/helper.gradle"))
+        from(file("gradle/versions.gradle"))
+    }
 
     repositories {
         jcenter()

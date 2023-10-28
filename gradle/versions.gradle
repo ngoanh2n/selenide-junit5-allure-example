@@ -1,0 +1,11 @@
+/**
+ * Author: ngoanh2n
+ */
+ext {
+    versions = [
+            selenide: { -> return "6.10.2" },
+            jupiter : { -> return "5.9.1" },
+            allure  : { -> return "2.20.1" },
+            slf4j   : { -> return "2.0.5" },
+    ]
+}
