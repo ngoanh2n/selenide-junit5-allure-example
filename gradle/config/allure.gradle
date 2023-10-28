@@ -5,7 +5,7 @@ allure {
     version = "${versions.allure}"
     adapter {
         aspectjWeaver = true
-        aspectjVersion = "1.9.1"
+        aspectjVersion = "${versions.aspectj}"
         autoconfigureListeners = true
         frameworks {
             junit5 {
