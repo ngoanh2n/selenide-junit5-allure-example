@@ -9,16 +9,13 @@ buildscript {
         from(file("gradle/helpers.gradle"))
         from(file("gradle/versions.gradle"))
     }
-
     repositories {
         jcenter()
         mavenCentral()
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath "io.qameta.allure:allure-gradle:2.8.1"
+        classpath("io.qameta.allure:allure-gradle:2.8.1")
     }
 }
 
@@ -27,7 +24,10 @@ apply plugin: "idea"                // Optional using for IntelliJ IDEA
 apply plugin: "eclipse"             // Optional using for Eclipse
 apply plugin: "io.qameta.allure"
 
-apply { from(config.compilation) }
+apply {
+    from(config.test)
+    from(config.compilation)
+}
 
 /*
 * Define extra properties for the project object - project.ext
@@ -44,9 +44,7 @@ ext {
 repositories {
     jcenter()
     mavenCentral()
-    maven {
-        url "https://plugins.gradle.org/m2/"
-    }
+    maven { url "https://plugins.gradle.org/m2/" }
 }
 
 dependencies {
@@ -109,49 +107,4 @@ allure {
     autoconfigure = false
     aspectjVersion = "1.9.1"
     useJUnit5 { version = VERSION_ALLURE }
-}
-
-test {
-    /*
-    * Enable JUnit Platform (JUnit 5) support, default is JUnit
-    */
-    useJUnitPlatform() {
-        /*
-        * Filter by engines
-        */
-        includeEngines "junit-jupiter"
-        //excludeEngines "junit-vintage"
-
-        /*
-        * Filter by tags
-        */
-        //includeTags "fast", "smoke"
-        //excludeTags "slow", "ci"
-    }
-
-    /*
-    * Make failing tests do not fail the task
-    */
-    ignoreFailures = true
-
-    /*
-    * If any upToDateWhen spec returns false, the task is considered out of date.
-    * If they return true, Gradle does the normal behavior of checking input/output files.
-    */
-    outputs.upToDateWhen { false }
-
-    /*
-    * To show standard out and standard error of the test JVM(s) on the console
-    */
-    testLogging.showStandardStreams = true
-
-    /*
-    *  Want to display the following test events
-    */
-    testLogging { events "passed", "skipped", "failed" }
-
-    /*
-    * When the JVM starts, it uses the JVMs platform encoding
-    */
-    systemProperty("file.encoding", "UTF-8")
 }

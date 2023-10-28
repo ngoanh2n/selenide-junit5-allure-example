@@ -1,0 +1,46 @@
+/**
+ * Author: ngoanh2n
+ * @see <a href="https://docs.gradle.org/current/userguide/java_testing.html">Testing in Java & JVM projects</a>
+ */
+//file:noinspection GroovyAssignabilityCheck
+
+reporting {
+    baseDir = "$buildDir/reports"
+}
+testResultsDirName = reporting.baseDir
+
+test {
+    /* Make failing tests do not fail the task */
+    ignoreFailures = true
+    /* If any upToDateWhen spec returns false, the task is considered out of date. */
+    /* If they return true, Gradle does the normal behavior of checking input/output files. */
+    outputs.upToDateWhen { false }
+
+    reports {
+        junitXml {
+            mergeReruns = true
+            outputPerTestCase = true
+        }
+    }
+    /* Enable JUnit Platform (JUnit 5) support, default is JUnit */
+    useJUnitPlatform {
+        /* Filter by engines */
+        includeEngines("junit-jupiter")
+        //excludeEngines("junit-vintage")
+
+        /* Filter by tags */
+        //includeTags "fast", "smoke"
+        //excludeTags "slow", "ci"
+    }
+    testLogging {
+        /* To show standard out and standard error of the test JVM(s) on the console */
+        showStandardStreams = true
+        /* Want to display the following test events */
+        events "passed", "skipped", "failed"
+    }
+
+    /* When the JVM starts, it uses the JVMs platform encoding */
+    systemProperty("file.encoding", "UTF-8")
+    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
+    systemProperties = System.getProperties() as Map<String, ?>
+}
