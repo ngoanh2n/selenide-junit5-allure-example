@@ -6,6 +6,6 @@ ext {
             selenide: { -> return "6.10.2" },
             jupiter : { -> return "5.10.0" },
             allure  : { -> return "2.24.0" },
-            slf4j   : { -> return "2.0.5" },
+            slf4j   : { -> return "2.0.9" },
     ]
 }
