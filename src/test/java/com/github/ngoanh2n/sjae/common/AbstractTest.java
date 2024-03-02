@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.AllureEnvironment;
+import com.github.ngoanh2n.sjae.models.Account;
 import com.github.ngoanh2n.sjae.pages.LoginPage;
 import com.github.ngoanh2n.sjae.pages.PortalPage;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
@@ -22,16 +23,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 @Severity(SeverityLevel.NORMAL)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public abstract class AbstractTest {
+    protected static Account account;
     protected PortalPage portalPage;
 
     @BeforeAll
-    public static void setupClass() {
+    public static void setupScenario() {
         // Add AllureSelenide listener
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+
+        // Load account data
+        account = new Account().toModel();
     }
 
     @AfterAll
-    public static void cleanupClass() {
+    public static void cleanupScenario() {
         // Remove AllureSelenide listener
         SelenideLogger.removeListener("AllureSelenide");
 
@@ -46,7 +51,7 @@ public abstract class AbstractTest {
     @BeforeEach
     protected void setupTest() {
         portalPage = Selenide.open("/users/login", LoginPage.class)
-                .login("ngoanh2n", "ngoanh2n");
+                .login(account);
     }
 
     @AfterEach
