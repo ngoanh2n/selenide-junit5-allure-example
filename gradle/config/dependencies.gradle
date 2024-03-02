@@ -12,7 +12,6 @@ dependencies {
 
     testImplementation("io.qameta.allure:allure-junit5:${versions.allure}")
     testImplementation("io.qameta.allure:allure-selenide:${versions.allure}")
-    implementation("com.github.automatedowl:allure-environment-writer:1.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter:${versions.jupiter}")
     testImplementation("org.slf4j:slf4j-log4j12:${versions.slf4j}")
 }
