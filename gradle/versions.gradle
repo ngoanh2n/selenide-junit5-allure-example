@@ -1,7 +1,7 @@
+//file:noinspection GroovyAssignabilityCheck
 /**
  * Author: ngoanh2n
  */
-//file:noinspection GroovyAssignabilityCheck
 
 ext {
     versions = [
