@@ -15,4 +15,10 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter:${versions.jupiter}")
     testImplementation("org.slf4j:slf4j-log4j12:${versions.slf4j}")
     testImplementation("com.github.ngoanh2n:commons-allure:${versions.commons}")
+
+    compileOnly("org.projectlombok:lombok:${versions.lombok}")
+    annotationProcessor("org.projectlombok:lombok:${versions.lombok}")
+
+    testCompileOnly("org.projectlombok:lombok:${versions.lombok}")
+    testAnnotationProcessor("org.projectlombok:lombok:${versions.lombok}")
 }
