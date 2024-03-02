@@ -1,12 +1,12 @@
 package com.github.ngoanh2n.sjae.pages;
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
+import com.github.ngoanh2n.RuntimeError;
 import com.github.ngoanh2n.sjae.pages.layouts.Header;
+import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.qameta.allure.Step;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
@@ -15,8 +15,9 @@ import static com.codeborne.selenide.Selenide.$$;
 /**
  * @author ngoanh2n
  */
+@CanIgnoreReturnValue
+@ParametersAreNonnullByDefault
 public class PortalPage extends Header<PortalPage> {
-
     @Step("Verify Dashboard title")
     public PortalPage verifyDashboardTitle(String expected) {
         screenshotEntryPage();
@@ -24,9 +25,13 @@ public class PortalPage extends Header<PortalPage> {
         return this;
     }
 
-    public PortalPage verifyLastQuizMenu() {
+    @Step("Verify number of quiz menu")
+    public PortalPage verifyNumberOfQuizMenu() {
         ElementsCollection collection = $$("div[class='quiz_menu'] ul li");
-        collection.get(6).shouldHave(text("How-to videos"));
+        //collection.shouldHave(CollectionCondition.sizeLessThan(1));
+        if (collection.size() > 1) {
+            throw new RuntimeError("Intentionally throws exception to illustrate broken case");
+        }
         return this;
     }
 }
