@@ -26,9 +26,7 @@ public class PortalPage extends Header<PortalPage> {
 
     public PortalPage verifyLastQuizMenu() {
         ElementsCollection collection = $$("div[class='quiz_menu'] ul li");
-        // This causes exception, because the last index is 5
-        List<SelenideElement> list = new ArrayList<>(collection);
-        list.get(6).shouldHave(text("How-to videos"));
+        collection.get(6).shouldHave(text("How-to videos"));
         return this;
     }
 }

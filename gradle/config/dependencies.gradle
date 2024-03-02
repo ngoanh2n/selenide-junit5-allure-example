@@ -7,9 +7,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.codeborne:selenide:${versions.selenide}") {
-        targetConfiguration = "compile"
-    }
+    implementation("com.codeborne:selenide:${versions.selenide}")
     implementation("org.slf4j:slf4j-api:${versions.slf4j}")
 
     testImplementation("io.qameta.allure:allure-junit5:${versions.allure}")
