@@ -6,7 +6,7 @@
 ext {
     versions = [
             selenide: { -> return "7.2.0" },
-            jupiter : { -> return "5.10.0" },
+            jupiter : { -> return "5.10.2" },
             allure  : { -> return "2.24.0" },
             slf4j   : { -> return "2.0.9" },
             aspectj : { -> return "1.9.1" },
