@@ -8,7 +8,7 @@ ext {
             selenide: { -> return "7.2.0" },
             jupiter : { -> return "5.10.2" },
             allure  : { -> return "2.25.0" },
-            slf4j   : { -> return "2.0.9" },
+            slf4j   : { -> return "2.0.12" },
             aspectj : { -> return "1.9.1" },
     ]
 }
