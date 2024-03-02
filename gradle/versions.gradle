@@ -10,5 +10,6 @@ ext {
             allure  : { -> return "2.25.0" },
             slf4j   : { -> return "2.0.12" },
             aspectj : { -> return "1.9.21.1" },
+            commons : { -> return "1.4.0" },
     ]
 }
