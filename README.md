@@ -22,10 +22,10 @@
 # Example of Selenide, JUnit5, Allure
 
 ## Framework
-> **Gradle**: <em>8.6 - Build Tool</em> <br>
-> **Selenide**: <em>7.2.0 - WebDriver</em> <br>
-> **Allure**: <em>2.25.0 - Report Framework</em> <br>
-> **JUnit5 - Jupiter**: <em>5.10.2 - Testing Framework</em> <br>
+> **Gradle**: <em>8.6 - Build Tool</em><br>
+> **Selenide**: <em>7.2.1 - WebDriver</em><br>
+> **JUnit5**: <em>5.10.2 - Testing Framework</em><br>
+> **Allure**: <em>2.25.0 - Report Framework</em><br>
 
 ## Project Structure
 ```
