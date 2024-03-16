@@ -35,6 +35,23 @@ public abstract class AbstractTest {
         account = new Account().toModel();
     }
 
+    @BeforeEach
+    protected void setupTest() {
+        // Open login page and login with account.
+        portalPage = Selenide.open("/users/login", LoginPage.class)
+                .login(account);
+    }
+
+    @AfterEach
+    protected void cleanupTest() {
+        // Logout.
+        portalPage.logout();
+
+        // Close the current window,
+        // quitting the browser if it's the last window currently open.
+        WebDriverRunner.closeWindow();
+    }
+
     @AfterAll
     public static void cleanupScenario() {
         // Remove AllureSelenide listener
@@ -46,17 +63,5 @@ public abstract class AbstractTest {
 
         // Put environment properties to Allure results
         AllureEnvironment.write("selenide.properties", "allure.properties");
-    }
-
-    @BeforeEach
-    protected void setupTest() {
-        portalPage = Selenide.open("/users/login", LoginPage.class)
-                .login(account);
-    }
-
-    @AfterEach
-    protected void cleanupTest() {
-        portalPage.logout();
-        WebDriverRunner.closeWindow();
     }
 }

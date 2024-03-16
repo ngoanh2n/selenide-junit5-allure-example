@@ -1,10 +1,8 @@
 package com.github.ngoanh2n.example.common;
 
 import com.codeborne.selenide.Screenshots;
-import com.codeborne.selenide.WebDriverRunner;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.qameta.allure.Attachment;
-import org.openqa.selenium.WebDriver;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import javax.imageio.ImageIO;
@@ -21,14 +19,7 @@ import java.io.IOException;
 @ParametersAreNonnullByDefault
 @SuppressWarnings({"unchecked",})
 public abstract class AbstractPage<Page> {
-    protected WebDriver driver;
-    protected long minTimeoutToWait = 5 * 1000; // Milliseconds
-
-    public AbstractPage() {
-        driver = WebDriverRunner.getWebDriver();
-    }
-
-    public Page screenshotEntryPage() {
+    public Page takeScreenshotToAllure() {
         screenshot();
         return (Page) this;
     }
