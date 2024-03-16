@@ -1,33 +1,30 @@
 [![GitHub stars](https://img.shields.io/github/stars/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Star&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/stargazers/)
-[![GitHub watchers](https://img.shields.io/github/watchers/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Watch&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/watchers/)
 [![GitHub forks](https://img.shields.io/github/forks/ngoanh2n/selenide-junit5-allure-example.svg?style=social&label=Fork&maxAge=2592000)](https://github.com/ngoanh2n/selenide-junit5-allure-example/network/members/)
 
 **Table of Contents**
 <!-- TOC -->
-* [Example of Selenide, JUnit5, Allure](#example-of-selenide-junit5-allure)
-  * [Framework](#framework)
-  * [Project Structure](#project-structure)
-  * [How To Use](#how-to-use)
-    * [Clone Repository](#clone-repository)
-    * [Configuration Files](#configuration-files)
-    * [Run Tests With Gradle](#run-tests-with-gradle)
-      * [Perform On Browsers](#perform-on-browsers)
-      * [Filter Tests](#filter-tests)
-    * [Allure Report](#allure-report)
-      * [Overview](#overview)
-      * [Categories](#categories)
-      * [Behaviors](#behaviors)
+* [Frameworks](#frameworks)
+* [Structure](#structure)
+* [Usages](#usages)
+  * [Configurations](#configurations)
+  * [Test Execution](#test-execution)
+    * [Browser](#browser)
+    * [Filter](#filter)
+  * [Allure Report](#allure-report)
+    * [Overview](#overview)
+    * [Categories](#categories)
+    * [Behaviors](#behaviors)
 <!-- TOC -->
 
 # Example of Selenide, JUnit5, Allure
 
-## Framework
+## Frameworks
 > **Gradle**: <em>8.6 - Build Tool</em><br>
 > **Selenide**: <em>7.2.1 - WebDriver</em><br>
 > **JUnit5**: <em>5.10.2 - Testing Framework</em><br>
 > **Allure**: <em>2.25.0 - Report Framework</em><br>
 
-## Project Structure
+## Structure
 ```
 ├── gradle
 │   ├── config
@@ -72,66 +69,70 @@
 └── settings.gradle
 ```
 
-## How To Use
-### Clone Repository
-> `$ git clone https://github.com/ngoanh2n/selenide-junit5-allure-example.git`
+## Usages
 
-### Configuration Files
+### Configurations
 You can change values for your case.
 
-1. [log4j.properties](src/test/resources/log4j.properties) <br>
-    > Configuring log4j involves assigning the Level, defining Appender, and specifying Layout objects in a configuration file.
-2. [selenide.properties](src/test/resources/selenide.properties) <br>
-    > Configuration settings for Selenide default browser. Settings can be set either via system property or programmatically.
-3. [junit-platform.properties](src/test/resources/junit-platform.properties) <br>
-    > If a properties file with this name is present in the root of the classpath, it will be used as a source for configuration parameters. If multiple files are present, only the first one detected in the classpath will be used.
-4. [allure.properties](src/test/resources/allure.properties) <br>
-    > Configuring all Allure properties by passing classpath.
-5. [categories.json](src/test/resources/categories.json) for Allure Report <br>
-    > Define categories to group tests. <br>
-    >> ```json
-    >> {
-    >>   "name": "{Category name}",
-    >>   "matchedStatuses": "{One or more statuses of tests}",
-    >>   "traceRegex": "{Exception name}",
-    >>   "messageRegex": "{The content or description of Exeception}"
-    >> }
-    >> ```
-    >
-    > Define a category by the following: <br>
-    >> - `matchedStatuses` -> The status of test, one in `skipped`, `passed`, `broken`, `failed`, `unknown` <br>
-    >> - `traceRegex` -> Find the exception caused status to the test <br>
-    >> - `messageRegex` -> Get content or description shortly or fully <br>
-    >> - `name` -> Set category name based on above keys <br>
+> [log4j.properties](src/test/resources/log4j.properties)
+>> Configuring log4j involves assigning the Level, defining Appender, and specifying Layout objects in a configuration file.
 
-### Run Tests With Gradle
-> `./gradlew test` <br>
+> [selenide.properties](src/test/resources/selenide.properties)
+>> Settings can be set either via system property or programmatically.
 
-#### Perform On Browsers
-> `./gradlew test -Dselenide.browser=firefox allureReport`
+> [junit-platform.properties](src/test/resources/junit-platform.properties)
+>> If a properties file with this name is present in the root of the classpath, it will be used as a source for configuration parameters.<br>
+>> If multiple files are present, only the first one detected in the classpath will be used.
 
-Browser can be:
-- chrome
-- edge
-- firefox
-- safari
-- ie
+> [allure.properties](src/test/resources/allure.properties)
+>> For configuring all Allure properties by passing classpath.
 
+> [categories.json](src/test/resources/categories.json)
+>> For defining categories to group tests. Below is a sample category.
+>>> ```json
+>>> {
+>>>   "name": "{Category name}",
+>>>   "matchedStatuses": "{One or more statuses of tests}",
+>>>   "traceRegex": "{Exception name}",
+>>>   "messageRegex": "{The content or description of Exeception}"
+>>> }
+>>> ```
+>>
+>> Define a category by the following:
+>>> - `matchedStatuses`: The status of test, one in `skipped`, `passed`, `broken`, `failed`, `unknown`
+>>> - `traceRegex`: Find the exception caused status to the test
+>>> - `messageRegex`: Get content or description shortly or fully
+>>> - `name`: Set category name based on above keys
+
+### Test Execution
+
+#### Browser
+Use JVM System Property `selenide.browser` to pass expected browser.<br>
+Giving values can be: [`chrome`, `edge`, `firefox`, `safari`, `ie`].
+```shell
+gradlew test -Dselenide.browser=firefox
+```
 <em>`Note`: If run safari, you must enable the `Allow Remote Automation` option in Safari's Develop menu to control Safari via WebDriver.</em>
 
-#### Filter Tests
+#### Filter
 You can filter tests by using option `--tests`. <br>
-Giving values can be `TestPackage`, `TestClass`, `TestMethod`.
-> `./gradlew test -Dselenide.browser=firefox --tests ExampleTest.passedTest`
+Giving values can be [`TestPackage`, `TestClass`, `TestMethod`].
+```shell
+gradlew test -Dselenide.browser=firefox --tests ExampleTest.passedTest
+```
+
+_Refer to [Test Filtering](https://docs.gradle.org/current/userguide/java_testing.html#test_filtering) for more information._
 
 ### Allure Report
 Add task `allureReport` to your test command. <br>
-It generates report from `selenide-junit5-allure-example/build/allure-results` folder.
-> `./gradlew test -Dselenide.browser=firefox --tests ExampleTest.passedTest allureReport`
+It generates from `build/allure-results` to `build/allure/allureReport`.
+```shell
+gradlew test -Dselenide.browser=firefox --tests ExampleTest.passedTest allureReport
+```
 
 <em>`Note`: If your test command contains task `allureReport`, when tests finished you can see below message in terminal likes.</em>
 > Task: `allureReport` <br>
-> Report successfully generated to `selenide-junit5-allure-example/build/reports/allure-report` <br>
+> Report successfully generated to `selenide-junit5-allure-example/build/allure/allureReport` <br>
 
 Open your browser with above path by Firefox <br>
 <em>`Note`: If you see Allure report is displayed likes below image.</em>
