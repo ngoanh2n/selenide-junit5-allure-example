@@ -1,8 +1,8 @@
-package com.github.ngoanh2n.sjae.pages;
+package com.github.ngoanh2n.example.pages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.github.ngoanh2n.RuntimeError;
-import com.github.ngoanh2n.sjae.pages.layouts.Header;
+import com.github.ngoanh2n.example.pages.shared.Header;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.qameta.allure.Step;
 

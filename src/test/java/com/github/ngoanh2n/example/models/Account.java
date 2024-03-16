@@ -1,4 +1,4 @@
-package com.github.ngoanh2n.sjae.models;
+package com.github.ngoanh2n.example.models;
 
 import com.github.ngoanh2n.YamlData;
 import com.github.ngoanh2n.YamlFrom;

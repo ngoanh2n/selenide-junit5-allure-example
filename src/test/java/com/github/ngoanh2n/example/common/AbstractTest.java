@@ -1,12 +1,12 @@
-package com.github.ngoanh2n.sjae.common;
+package com.github.ngoanh2n.example.common;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.ngoanh2n.AllureEnvironment;
-import com.github.ngoanh2n.sjae.models.Account;
-import com.github.ngoanh2n.sjae.pages.LoginPage;
-import com.github.ngoanh2n.sjae.pages.PortalPage;
+import com.github.ngoanh2n.example.models.Account;
+import com.github.ngoanh2n.example.pages.LoginPage;
+import com.github.ngoanh2n.example.pages.PortalPage;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;

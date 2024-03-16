@@ -1,6 +1,6 @@
-package com.github.ngoanh2n.sjae.scripts;
+package com.github.ngoanh2n.example.scripts;
 
-import com.github.ngoanh2n.sjae.common.AbstractTest;
+import com.github.ngoanh2n.example.common.AbstractTest;
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;

@@ -43,14 +43,14 @@
 ├── images
 │   └── **/*.png
 ├── src/test
-│   ├── java/com/github/ngoanh2n/sjae
+│   ├── java/com/github/ngoanh2n/example
 │   │   ├── common
 │   │   │   ├── AbstractPage.java
 │   │   │   └── AbstractTest.java
 │   │   ├── models
 │   │   │   └── Account.java
 │   │   ├── pages
-│   │   │   ├── layouts
+│   │   │   ├── shared
 │   │   │   │   └── Header.java
 │   │   │   ├── LoginPage.java
 │   │   │   └── PortalPage.java

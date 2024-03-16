@@ -1,8 +1,8 @@
-package com.github.ngoanh2n.sjae.pages.layouts;
+package com.github.ngoanh2n.example.pages.shared;
 
 import com.codeborne.selenide.Selenide;
-import com.github.ngoanh2n.sjae.common.AbstractPage;
-import com.github.ngoanh2n.sjae.pages.LoginPage;
+import com.github.ngoanh2n.example.common.AbstractPage;
+import com.github.ngoanh2n.example.pages.LoginPage;
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import io.qameta.allure.Step;
 

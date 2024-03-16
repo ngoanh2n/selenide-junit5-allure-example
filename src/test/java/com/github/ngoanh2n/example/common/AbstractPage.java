@@ -1,4 +1,4 @@
-package com.github.ngoanh2n.sjae.common;
+package com.github.ngoanh2n.example.common;
 
 import com.codeborne.selenide.Screenshots;
 import com.codeborne.selenide.WebDriverRunner;
