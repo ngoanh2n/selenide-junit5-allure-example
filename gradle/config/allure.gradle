@@ -3,7 +3,14 @@
  * @see <a href="https://github.com/allure-framework/allure-gradle">Allure plugin for Gradle</a>
  */
 allure {
+    /*
+    * Set Allure Java version to use.
+    * */
     version = "${versions.allure}"
+
+    /*
+    * Below configuration is default, so you can ignore `adapter{}` block.
+    * */
     adapter {
         aspectjVersion = "${versions.aspectj}"
         allureJavaVersion = "${versions.allure}"
@@ -18,7 +25,15 @@ allure {
             }
         }
     }
+
+    /*
+    * Relates to report generation.
+    * */
     report {
+        /*
+        * By default, Allure report will be generated in `build/reports/allure-report/allureReport`.
+        * In this case, I want to set Allure report directory to `build/allure/allureReport`.
+        * */
         reportDir = layout.buildDirectory.locationOnly.get().file("allure").asFile
     }
 }

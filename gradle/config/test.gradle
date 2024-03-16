@@ -11,24 +11,37 @@ reporting {
 }
 
 test {
-    /* Enable JUnit Platform (JUnit 5) support, default is JUnit */
+    /*
+    * Tell Gradle we want to use JUnit5 to discover and execute the tests (default to JUnit4).
+    * */
     useJUnitPlatform {
-        /* Filter by engines */
+        /*
+        * Filter by engines
+        * */
         includeEngines("junit-jupiter")
         //excludeEngines("junit-vintage")
 
-        /* Filter by tags */
+        /*
+        * Filter by tags
+        * */
         //includeTags "fast", "smoke"
         //excludeTags "slow", "ci"
     }
 
-    /* Make failing tests do not fail the task */
+    /*
+    * Make failing tests do not fail the task
+    * */
     ignoreFailures = true
 
-    /* If any upToDateWhen spec returns false, the task is considered out of date. */
-    /* If they return true, Gradle does the normal behavior of checking input/output files. */
+    /*
+    * That means outputs are not up to date.
+    * Therefore you don't have to run 'clean' task if you have not updated any codes before executing the tests.
+    * */
     outputs.upToDateWhen { false }
 
+    /*
+    * Tell Gradle we want to enable XML report output for JUnit.
+    * */
     reports {
         junitXml {
             mergeReruns = true
@@ -36,15 +49,24 @@ test {
         }
     }
 
+    /*
+    * Configure the logging of the test execution.
+    * */
     testLogging {
-        /* To show standard out and standard error of the test JVM(s) on the console */
+        /*
+        * Make the standard streams (err and out) visible at console when running tests.
+        * */
         showStandardStreams = true
-        /* Want to display the following test events */
+
+        /*
+        * Expect PASSED, SKIPPED, FAILED test events to be logged.
+        * */
         events "passed", "skipped", "failed"
     }
 
-    /* When the JVM starts, it uses the JVMs platform encoding */
+    /*
+    * When the JVM starts, it uses the JVMs platform encoding
+    * */
     systemProperty("file.encoding", "UTF-8")
-    systemProperty("junit.jupiter.extensions.autodetection.enabled", "true")
     systemProperties.putAll(System.getProperties() as Map<?, ?>)
 }
