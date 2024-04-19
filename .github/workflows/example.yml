@@ -1,0 +1,76 @@
+#
+# author: ngoanh2n
+# https://docs.github.com/en/actions
+# https://github.com/marketplace?type=actions
+#
+
+name: Multiple browsers and platforms workflow
+run-name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_and_test:
+    defaults:
+      run:
+        shell: bash
+    strategy:
+      max-parallel: 2
+      matrix:
+        os: [macos-latest, windows-latest]
+        browser: [safari, edge, chrome, firefox]
+        java_version: [17]
+        exclude:
+          - os: macos-latest
+            browser: chrome
+          - os: macos-latest
+            browser: firefox
+          - os: windows-latest
+            browser: safari
+          - os: windows-latest
+            browser: edge
+    runs-on: ${{ matrix.os }}
+    name: ${{ join(matrix.*, '_') }}
+    env:
+      MATRIX_JOB_NAME: ${{ join(matrix.*, '_') }}
+
+    steps:
+      - name: "[Prepare] Checkout"
+        uses: actions/checkout@v4
+
+      - name: "[Prepare] Setup JDK 17"
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java_version }}
+
+      - name: "[Test] Execute"
+        id: test_execution
+        run: |
+          ./gradlew clean test --tests ExampleTest $VM_ARGS allureReport
+        env:
+          VM_ARGS: -Dselenide.browser=${{ matrix.browser }}
+
+      - if: success() || failure()
+        name: "[Report] JUnit report"
+        uses: mikepenz/action-junit-report@v4
+        with:
+          check_name: JUnit ${{ env.MATRIX_JOB_NAME }}
+          report_paths: build/reports/test/TEST-*.xml
+
+      - if: steps.test_execution.conclusion == 'failure'
+        name: "[Artifact] Gradle result"
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-gradle-${{ env.MATRIX_JOB_NAME }}
+          path: build/reports/tests/test
+
+      - if: always()
+        name: "[Artifact] Allure report"
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-allure-${{ env.MATRIX_JOB_NAME }}
+          path: build/allure/allureReport
